@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Update Post</title>
+    <link rel="stylesheet" href="/css/styles_update.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Update Post</h1>
+      <form class="form" action="/post/update/<%= post._id %>" method="POST">
+        <div>
+          <label for="title">Title:</label>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            value="<%= post.title %>"
+            required
+          />
+        </div>
+        <div>
+          <label for="description">Description:</label>
+          <textarea id="description" name="description" required>
+<%= post.description %></textarea
+          >
+        </div>
+        <button type="submit" class="submit-button">Update Post</button>
+        <a href="/" class="btn-grey">Cancel</a>
+      </form>
+    </div>
+  </body>
+</html>

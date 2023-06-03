@@ -12,7 +12,7 @@
         <h2><%= post.title %></h2>
         <p><%= post.description %></p>
         <div class="post-actions">
-          <a href="/post/<%= post._id %>/update" class="btn-primary">Update</a>
+          <a href="/post/update/<%= post._id %>" class="btn-primary">Update</a>
           <form action="/post/<%= post._id %>/delete" method="POST">
             <a
               href="/post/delete/<%= post._id %>"

@@ -62,6 +62,29 @@ app.get(
     scope: ["profile", "email"], // the details we wish to get from the user
   })
 );
+app.get("/post/update/:id", (req, res) => {
+  const postId = req.params.id;
+  Post.findById(postId, (err, post) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.render("update", { post: post });
+    }
+  });
+});
+
+app.post("/post/update/:id", (req, res) => {
+  const postId = req.params.id;
+  const { title, description } = req.body;
+
+  Post.findByIdAndUpdate(postId, { title, description }, (err) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.redirect("/");
+    }
+  });
+});
 
 // after giving the consent, handling call back function
 app.get("/auth/google/callback", passport.authenticate("google"));
